@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:columnCount="3"
+    android:orientation="horizontal"
+    android:rowCount="3"
+    android:useDefaultMargins="true">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#A52F2F"
+        android:text="Botón 1"
+        tools:ignore="HardcoredText" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#893333"
+        android:layout_rowSpan="2"
+        android:layout_gravity="fill"
+        android:text="Botón 2"
+        tools:ignore="HardcoredText" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#C04646"
+        android:text="Botón 3"
+        tools:ignore="HardcoredText" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#BA1313"
+        android:text="Botón 4"
+        tools:ignore="HardcoredText" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#B17373"
+        android:text="Botón 5"
+        tools:ignore="HardcoredText" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#A34D4D"
+        android:layout_columnSpan="3"
+        android:layout_gravity="fill"
+        android:text="Botón 6"
+        tools:ignore="HardcoredText" />
+</GridLayout>

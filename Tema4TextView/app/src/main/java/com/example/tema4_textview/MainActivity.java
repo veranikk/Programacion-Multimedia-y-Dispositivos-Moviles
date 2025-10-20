@@ -54,5 +54,6 @@ public class MainActivity extends AppCompatActivity {
         animation.setRepeatCount(20);
         //por último se aplica la animación al texto
         miTexto.startAnimation(animation);
+
     }
 }

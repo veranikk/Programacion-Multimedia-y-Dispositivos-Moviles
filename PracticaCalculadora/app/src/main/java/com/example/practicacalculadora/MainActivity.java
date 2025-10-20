@@ -10,113 +10,179 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView texto1;
-    private String input = ""; // Guarda la expresión que el usuario escribe
+    private String input = ""; //Guarda la expresión que el usuario escribe
 
+    /**
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calculadora);
 
+        //Variable 'texto1' referencia a TextView con id 'miTexto' del layout
         texto1 = findViewById(R.id.miTexto);
 
+        //Asigna el listener al botón 0
         findViewById(R.id.btn0).setOnClickListener(this);
+        //Asigna el listener al botón 1
         findViewById(R.id.btn1).setOnClickListener(this);
+        //Asigna el listener al botón 2
         findViewById(R.id.btn2).setOnClickListener(this);
+        //Asigna el listener al botón 3
         findViewById(R.id.btn3).setOnClickListener(this);
+        //Asigna el listener al botón 4
         findViewById(R.id.btn4).setOnClickListener(this);
+        //Asigna el listener al botón 5
         findViewById(R.id.btn5).setOnClickListener(this);
+        //Asigna el listener al botón 6
         findViewById(R.id.btn6).setOnClickListener(this);
+        //Asigna el listener al botón 7
         findViewById(R.id.btn7).setOnClickListener(this);
+        //Asigna el listener al botón 8
         findViewById(R.id.btn8).setOnClickListener(this);
+        //Asigna el listener al botón 9
         findViewById(R.id.btn9).setOnClickListener(this);
 
+        //Asigna el listener al botón de suma +
         findViewById(R.id.btnSum).setOnClickListener(this);
+        //Asigna el listener al botón de resta −
         findViewById(R.id.btnMenos).setOnClickListener(this);
+        //Asigna el listener al botón de multiplicación ×
         findViewById(R.id.btnMulti).setOnClickListener(this);
+        //Asigna el listener al botón de división /
         findViewById(R.id.btnDiv).setOnClickListener(this);
 
+        //Asigna el listener al botón del punto decimal .
         findViewById(R.id.btnPunto).setOnClickListener(this);
+        //Asigna el listener al botón de igual =
         findViewById(R.id.btnIgual).setOnClickListener(this);
+        //Asigna el listener al botón para borrar todo CA
         findViewById(R.id.btnClearAll).setOnClickListener(this);
+        //Asigna el listener al botón para borrar un carácter C
         findViewById(R.id.btnClear).setOnClickListener(this);
     }
 
+    /**
+     * Le damos funciones a los botones cuando son clickeados
+     * @param view The view that was clicked.
+     */
     @Override
     public void onClick(View view) {
-        Button boton = (Button) view; // Convertimos la vista en botón
-        String textoBoton = boton.getText().toString(); // Obtenemos el texto del botón
-        String actual = texto1.getText().toString();  // Obtenemos el texto actual de la pantalla
+        Button boton = (Button) view; //Convertimos la vista en botón
+        String textoBoton = boton.getText().toString(); //Obtenemos el texto del botón
+        String actual = texto1.getText().toString();  //Obtenemos el texto actual de la pantalla
 
+        //Hacemos un switch donde verificamos el texto del botón
         switch (textoBoton) {
             case "=":
-                // Cuando se pulsa "=" evaluamos la expresión
+                //Cuando se pulsa "=" evaluamos la expresión
                 try {
-                    input = hacerOperacion(input); // Calcula el resultado
-                    texto1.setText(input); // Lo muestra en la pantalla
+                    input = hacerOperacion(input); //Calcula el resultado
+                    texto1.setText(input); //Lo muestra en la pantalla
                 } catch (Exception e) {
-                    texto1.setText("Error"); // Si hay error de sintaxis
+                    texto1.setText("Error"); //Si hay error de sintaxis muestra Error
                     input = "";
                 }
                 break;
 
             case "C":
-                // Borra el último carácter
+                //Borra el último carácter
                 if (!input.isEmpty()) {
                     input = input.substring(0, input.length() - 1);
+                }else {
+                    input = "0"; //Si queda vacío, mostramos 0
+                    texto1.setText(input);
                 }
-                if (input.isEmpty()) input = "0"; // Si queda vacío, mostramos 0
-                texto1.setText(input);
                 break;
 
             case "CA":
-                // Borra toda la expresión
+                //Borra toda la expresión, ponemos 0
                 input = "0";
                 texto1.setText(input);
                 break;
 
             default:
-                // Si es número, símbolo o punto lo agregamos a la expresión
-                input = meterNumSim(input, textoBoton);
+                //Si es número, símbolo o punto lo agregamos a la expresión
+                input = meterNumSim(actual, textoBoton);
                 texto1.setText(input);
                 break;
         }
     }
 
-    // Función para agregar un carácter a la calculadora
+    /**
+     * Función para agregar un carácter a la calculadora
+     * @param expr
+     * @param caracter
+     * @return
+     */
     private String meterNumSim(String expr, String caracter) {
-        if (expr == null || expr.equals("0")) expr = ""; // Reiniciamos la calculadora
 
-        char ultimo = expr.isEmpty() ? ' ' : expr.charAt(expr.length() - 1);
-
-        // Evitar símbolos repetidos seguidos
-        if (esSimbolo(caracter.charAt(0))) {
-            if (expr.isEmpty() || esSimbolo(ultimo)) return expr;
+        //Reiniciamos la calculadora si la expr es null o igual a 0
+        if (expr == null || expr.equals("0")){
+            expr = "";
         }
 
-        // Evitar más de un punto en el mismo número
+        /**
+         * Si expr está vacío, le damos nada a char y si tiene algo le suprimimos lo último
+         */
+        char ultimo;
+        if (expr.isEmpty()) {
+            ultimo = ' ';
+        } else {
+            ultimo = expr.charAt(expr.length() - 1);
+        }
+
+        /**
+         * Evitamos símbolos repetidos
+         */
+        if (esSimbolo(caracter.charAt(0))) {
+            if (expr.isEmpty() || esSimbolo(ultimo)){
+                return expr;
+            }
+        }
+
+        /**
+         *  Evitamos más de un punto en el mismo número
+         *  y cuando empiezan con . ponemos 0.
+         */
         if (caracter.equals(".")) {
             int i = expr.length() - 1;
             while (i >= 0 && !esSimbolo(expr.charAt(i))) {
-                if (expr.charAt(i) == '.') return expr; // Ya hay un punto
+                if (expr.charAt(i) == '.'){
+                    return expr;
+                }// Ya hay un punto
                 i--;
             }
-            if (expr.isEmpty() || esSimbolo(ultimo)) caracter = "0."; // Si empieza con punto, ponemos "0."
+            if (expr.isEmpty() || esSimbolo(ultimo)){
+                caracter = "0.";
+            }
         }
 
         return expr + caracter; // Devolvemos la expresión actualizada
     }
 
-    // Función que dice si un carácter es un operador
+    /**
+     * Función que dice si un carácter es un símbolo
+     * @param c
+     * @return
+     */
     private boolean esSimbolo(char c) {
         return c == '+' || c == '-' || c == '*' || c == '/';
     }
 
-    // Función que dice si un string es un operador
-    private boolean esSimbolo(String s) {
-        return s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/");
-    }
-
-    // Evalúa la expresión respetando la prioridad de multiplicación y división
+    /**
+     * Hace la operación respetando la prioridad de multiplicación y división
+     * metodo hecho con IA
+     *
+     * @param expr
+     * @return
+     * @throws Exception
+     */
     private String hacerOperacion(String expr) throws Exception {
         expr = expr.replace(" ", ""); // Quitamos espacios
 

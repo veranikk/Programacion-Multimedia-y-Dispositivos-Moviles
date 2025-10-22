@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Hacemos un switch donde verificamos el texto del botón
         switch (textoBoton) {
             case "=":
-                //Cuando se pulsa "=" evaluamos la expresión
+                //Cuando se pulsa "=" calculamos la operacion
                 try {
                     input = hacerOperacion(input); //Calcula el resultado
                     texto1.setText(input); //Lo muestra en la pantalla
@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //Borra el último carácter
                 if (!input.isEmpty()) {
                     input = input.substring(0, input.length() - 1);
+                    texto1.setText(input);
                 }else {
                     input = "0"; //Si queda vacío, mostramos 0
                     texto1.setText(input);

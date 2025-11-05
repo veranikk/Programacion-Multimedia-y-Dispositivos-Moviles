@@ -1,6 +1,7 @@
 package com.example.tema4_edittext;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
@@ -25,5 +26,15 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adaptador= new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, opciones);
 
         textoLeido.setAdapter(adaptador);
+
+        radioGroup=findViewById(R.id.radioGroup);
+        buttonCheck=findViewById(R.id.radioButton1);
+
+
+        buttonCheck.setOnclickListener(new View.OnClickListener){
+            public void onClick(View v){
+                int selectedId=
+            }
+        }
     }
 }

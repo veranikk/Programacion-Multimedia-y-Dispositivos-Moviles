@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Lista de la compra</string>
+    <string name="item_name">Nombre del artículo</string>
+    <string name="item_quantity">Cantidad</string>
+    <string name="add">Añadir</string>
+    <string name="delete">Eliminar</string>
+    <string name="quantity_format">Cantidad: %1$d</string>
+    <string name="item_image">Imagen del artículo</string>
+    <string name="fill_all_fields">Por favor, complete todos los campos</string>
+    <string name="invalid_quantity">Cantidad inválida</string>
+    <string name="menu_add">Añadir Elemento</string>
+    <string name="menu_delete">Quitar Elemento</string>
+    <string name="default_product">Producto por defecto</string>
+    <string name="options">Opciones para: </string>
+    <string-array name="spinner_categories">
+        <item>Fruta</item>
+        <item>Lácteo</item>
+        <item>Verdura</item>
+        <item>Carne</item>
+        <item>Bebida</item>
+    </string-array>
+</resources>

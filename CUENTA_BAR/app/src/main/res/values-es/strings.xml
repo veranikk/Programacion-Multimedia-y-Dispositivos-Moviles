@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CUENTA_BAR</string>
+    <string name="titulo_app">GESTIONA.CUENTAS 2000</string>
+    <string name="hint_total_cuenta">Introduzca el total de la cuenta</string>
+    <string name="incluir_propina">Incluir propina</string>
+    <string name="texto_propina">Propina: 10%</string>
+    <string name="efectivo">Efectivo</string>
+    <string name="tarjeta">Tarjeta</string>
+    <string name="hint_camarero">Nombre del camarero que les atendió</string>
+    <string name="calcular_total">Calcular Total</string>
+</resources>

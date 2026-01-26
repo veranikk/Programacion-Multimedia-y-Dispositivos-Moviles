@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CUENTA_BAR</string>
+    <string name="titulo_app">ACCOUNT MANAGER 2000</string>
+    <string name="hint_total_cuenta">Enter the total bill</string>
+    <string name="incluir_propina">Include tip</string>
+    <string name="texto_propina">Tip: 10%</string>
+    <string name="efectivo">Cash</string>
+    <string name="tarjeta">Card</string>
+    <string name="hint_camarero">Name of the waiter who served you</string>
+    <string name="calcular_total">Calculate Total</string>
+</resources>

@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.linearlayout);
 
         total= findViewById(R.id.totalCuenta);
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             }
         } catch (NumberFormatException e) {
             resultado.setTextColor(Color.RED);
-            resultado.setText("Formato numérico incorrecto");
+            resultado.setText("Formato numéric-o incorrecto");
         }
 
         double propina1 =0;

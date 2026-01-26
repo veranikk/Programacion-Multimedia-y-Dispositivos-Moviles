@@ -1,7 +1,10 @@
 package com.example.tema5_adaptadorespersonalizados;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,5 +30,17 @@ public class MainActivity extends AppCompatActivity {
         ListView listado= findViewById(R.id.listView);
         Adaptador miAdaptador = new Adaptador(this, datos);
         listado.setAdapter(miAdaptador);
+
+        View miCabecera= getLayoutInflater().inflate(R.layout.cabecera, null);
+        listado.addHeaderView(miCabecera);
+
+        listado.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem= ((Datos)parent.getItemAtPosition(position)).getTexto1();
+                Toast.makeText(MainActivity.this, "Elemento pulsado "+ selectedItem, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }

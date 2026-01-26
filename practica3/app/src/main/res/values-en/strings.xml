@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Shopping List</string>
+    <string name="item_name">Item Name</string>
+    <string name="item_quantity">Quantity</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="quantity_format">Quantity: %1$d</string>
+    <string name="item_image">Item Image</string>
+    <string name="fill_all_fields">Please fill all fields</string>
+    <string name="invalid_quantity">Invalid quantity</string>
+    <string name="menu_add">Add Item</string>
+    <string name="menu_delete">Remove Item</string>
+    <string name="default_product">Default Product</string>
+    <string name="options">Options for: </string>
+    <string-array name="spinner_categories">
+        <item>Fruit</item>
+        <item>Dairy</item>
+        <item>Vegetable</item>
+        <item>Meat</item>
+        <item>Drink</item>
+    </string-array>
+</resources>
